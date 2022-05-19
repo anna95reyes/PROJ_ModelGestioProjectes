@@ -28,7 +28,7 @@ public class Usuari implements Serializable {
     private String passwrdHash;
     
     private List<ProjecteUsuariRol> projectesRol = new ArrayList();
-    private List<Tasca> tasques = new ArrayList();
+    private List<Tasca> tasquesAssignades = new ArrayList();
 
     protected Usuari() {
     }
@@ -151,20 +151,20 @@ public class Usuari implements Serializable {
         }
     }
     
-    public Iterator<Tasca> iteTasques(){
-        return tasques.iterator();
+    public Iterator<Tasca> iteTasquesAssignades(){
+        return tasquesAssignades.iterator();
     }
     
-    public void addTasca(Tasca tasca){
-        if (tasques == null){
+    public void addTasca(Tasca tascaAsignada){
+        if (tasquesAssignades == null){
             throw new RuntimeException("Intent d'afegir una tasca nulla");
         }
-        tasques.add(tasca);
+        tasquesAssignades.add(tascaAsignada);
     }
     
-    public void removeTasca(Tasca tasca){
-        if(tasques.contains(tasca)){
-            tasques.remove(tasca);
+    public void removeTasca(Tasca tascaAsignada){
+        if(tasquesAssignades.contains(tascaAsignada)){
+            tasquesAssignades.remove(tascaAsignada);
         }
     }
     
@@ -195,7 +195,7 @@ public class Usuari implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuari{" + "id=" + id + ", nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dataNaixement=" + dataNaixement + ", login=" + login + ", passwrdHash=" + passwrdHash + ", projectes=" + projectesRol + ", tasques=" + tasques + '}';
+        return "Usuari{" + "id=" + id + ", nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dataNaixement=" + dataNaixement + ", login=" + login + ", passwrdHash=" + passwrdHash + ", projectes=" + projectesRol + ", tasques=" + tasquesAssignades + '}';
     }
 
 }

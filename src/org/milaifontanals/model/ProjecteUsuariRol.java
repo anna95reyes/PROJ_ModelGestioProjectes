@@ -13,6 +13,10 @@ import java.util.Objects;
  * @author anna9
  */
 public class ProjecteUsuariRol implements Serializable {
+    
+    private Integer idProjecte;
+    private Integer idUsuari;
+    
     private Projecte projecte;
     private Usuari usuari;
     private Rol rol;
@@ -26,12 +30,31 @@ public class ProjecteUsuariRol implements Serializable {
         this.rol = rol;
     }
 
+    public Integer getIdProjecte() {
+        return idProjecte;
+    }
+
+    public void setIdProjecte(Integer idProjecte) {
+        this.idProjecte = idProjecte;
+    }
+
+    public Integer getIdUsuari() {
+        return idUsuari;
+    }
+
+    public void setIdUsuari(Integer idUsuari) {
+        this.idUsuari = idUsuari;
+    }
+
+    
+    
     public Projecte getProjecte() {
         return projecte;
     }
 
     public void setProjecte(Projecte projecte) {
         this.projecte = projecte;
+        this.idProjecte = projecte.getId();
     }
 
     public Usuari getUsuari() {
@@ -40,6 +63,7 @@ public class ProjecteUsuariRol implements Serializable {
 
     public void setUsuari(Usuari usuari) {
         this.usuari = usuari;
+        this.idUsuari = usuari.getId();
     }
 
     public Rol getRol() {
