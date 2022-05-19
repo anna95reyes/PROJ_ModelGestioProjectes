@@ -12,15 +12,15 @@ import java.util.Objects;
  *
  * @author anna9
  */
-public class ProjecteUsuari implements Serializable {
+public class ProjecteUsuariRol implements Serializable {
     private Projecte projecte;
     private Usuari usuari;
     private Rol rol;
 
-    protected ProjecteUsuari() {
+    protected ProjecteUsuariRol() {
     }
 
-    public ProjecteUsuari(Projecte projecte, Usuari usuari, Rol rol) {
+    public ProjecteUsuariRol(Projecte projecte, Usuari usuari, Rol rol) {
         this.projecte = projecte;
         this.usuari = usuari;
         this.rol = rol;
@@ -69,7 +69,7 @@ public class ProjecteUsuari implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ProjecteUsuari other = (ProjecteUsuari) obj;
+        final ProjecteUsuariRol other = (ProjecteUsuariRol) obj;
         if (!Objects.equals(this.projecte, other.projecte)) {
             return false;
         }

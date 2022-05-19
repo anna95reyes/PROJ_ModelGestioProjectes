@@ -27,7 +27,7 @@ public class Usuari implements Serializable {
     private String login;
     private String passwrdHash;
     
-    private List<ProjecteUsuari> projectes = new ArrayList();
+    private List<ProjecteUsuariRol> projectesRol = new ArrayList();
     private List<Tasca> tasques = new ArrayList();
 
     protected Usuari() {
@@ -130,24 +130,24 @@ public class Usuari implements Serializable {
     }
 
     
-    public Iterator<ProjecteUsuari> iteProjectes(){
-        return projectes.iterator();
+    public Iterator<ProjecteUsuariRol> iteProjectesRols(){
+        return projectesRol.iterator();
     }
     
-    public void addProjecte(ProjecteUsuari projecte){
-        if (projectes == null){
-            throw new RuntimeException("Intent d'afegir un projecte null");
+    public void addProjecteRol(ProjecteUsuariRol projecteRol){
+        if (projectesRol == null){
+            throw new RuntimeException("Intent d'afegir un projecteRol null");
         }
-        if (projecte.getUsuari() == null){
-            if (!this.projectes.contains(projecte)){
-                projectes.add(projecte);
+        if (projecteRol.getUsuari() == null){
+            if (!this.projectesRol.contains(projecteRol)){
+                projectesRol.add(projecteRol);
             }
         }
     }
     
-    public void removeProjecte(ProjecteUsuari projecte){
-        if(projectes.contains(projecte)){
-            projectes.remove(projecte);
+    public void removeProjecteRol(ProjecteUsuariRol projecteRol){
+        if(projectesRol.contains(projecteRol)){
+            projectesRol.remove(projecteRol);
         }
     }
     
@@ -157,7 +157,7 @@ public class Usuari implements Serializable {
     
     public void addTasca(Tasca tasca){
         if (tasques == null){
-            throw new RuntimeException("Intent d'afegir un projecte null");
+            throw new RuntimeException("Intent d'afegir una tasca nulla");
         }
         tasques.add(tasca);
     }
@@ -195,7 +195,7 @@ public class Usuari implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuari{" + "id=" + id + ", nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dataNaixement=" + dataNaixement + ", login=" + login + ", passwrdHash=" + passwrdHash + ", projectes=" + projectes + ", tasques=" + tasques + '}';
+        return "Usuari{" + "id=" + id + ", nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dataNaixement=" + dataNaixement + ", login=" + login + ", passwrdHash=" + passwrdHash + ", projectes=" + projectesRol + ", tasques=" + tasques + '}';
     }
 
 }

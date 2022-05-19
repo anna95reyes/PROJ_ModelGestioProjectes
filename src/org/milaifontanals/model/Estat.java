@@ -5,14 +5,45 @@
  */
 package org.milaifontanals.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author anna9
  */
-public enum Estat {
-    TANCADA_SENSE_SOLUCIO,
-    TANCADA_RESOLUTA,
-    TANCADA_DUPLICADA,
-    OBERTA_NO_ASSIGNADA,
-    OBERTA_ASSIGNADA
+public class Estat implements Serializable {
+    
+    private Integer id;
+    private String nom;
+
+    protected Estat() {
+    }
+
+    public Estat(Integer id, String nom) {
+        setId(id);
+        setNom(nom);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        if (id == null || id <= 0) {
+            throw new RuntimeException("La id es obligatoria i positiva");
+        }
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        if (nom == null || nom.length() <= 0){
+            throw new RuntimeException("El nom es obligatori i no buit");
+        }
+        this.nom = nom;
+    }
+    
 }

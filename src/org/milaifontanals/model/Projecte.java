@@ -23,7 +23,7 @@ public class Projecte implements Serializable {
     
     private Usuari capProjecte;
     private List<Tasca> tasques = new ArrayList();
-    private List<ProjecteUsuari> usuaris = new ArrayList();
+    private List<ProjecteUsuariRol> usuarisRol = new ArrayList();
     
     protected Projecte() {
     }
@@ -40,13 +40,13 @@ public class Projecte implements Serializable {
         setCapProjecte(capProjecte);
     }
 
-    public Projecte(Integer id, String nom, String descripcio, Usuari capProjecte, List<Tasca> tasques, List<ProjecteUsuari> usuaris) {
+    public Projecte(Integer id, String nom, String descripcio, Usuari capProjecte, List<Tasca> tasques, List<ProjecteUsuariRol> usuaris) {
         setId(id);
         setNom(nom);
         setDescripcio(descripcio);
         setCapProjecte(capProjecte);
         this.tasques = tasques;
-        this.usuaris = usuaris;
+        this.usuarisRol = usuaris;
     }
 
     public Integer getId() {
@@ -112,24 +112,24 @@ public class Projecte implements Serializable {
         }
     }
     
-    public Iterator<ProjecteUsuari> iteUsuaris(){
-        return usuaris.iterator();
+    public Iterator<ProjecteUsuariRol> iteUsuarisRols(){
+        return usuarisRol.iterator();
     }
     
-    public void addUsuari(ProjecteUsuari usuari){
-        if (usuari == null){
-            throw new RuntimeException("Intent d'afegir un usuari null");
+    public void addUsuariRol(ProjecteUsuariRol usuariRol){
+        if (usuariRol == null){
+            throw new RuntimeException("Intent d'afegir un usuariRol null");
         }
-        if (usuari.getProjecte() == null){
-            if (!this.usuaris.contains(usuari)){
-                usuaris.add(usuari);
+        if (usuariRol.getProjecte() == null){
+            if (!this.usuarisRol.contains(usuariRol)){
+                usuarisRol.add(usuariRol);
             }
         }
     }
     
-    public void removeUsuari(ProjecteUsuari usuari){
-        if(usuaris.contains(usuari)){
-            usuaris.remove(usuari);
+    public void removeUsuariRol (ProjecteUsuariRol usuariRol){
+        if(usuarisRol.contains(usuariRol)){
+            usuarisRol.remove(usuariRol);
         }
     }
     
@@ -160,7 +160,7 @@ public class Projecte implements Serializable {
 
     @Override
     public String toString() {
-        return "Projecte{" + "id=" + id + ", nom=" + nom + ", descripcio=" + descripcio + ", capProjecte=" + capProjecte + ", tasques=" + tasques + ", usuaris=" + usuaris + '}';
+        return "Projecte{" + "id=" + id + ", nom=" + nom + ", descripcio=" + descripcio + ", capProjecte=" + capProjecte + ", tasques=" + tasques + ", usuaris=" + usuarisRol + '}';
     }
 
     
