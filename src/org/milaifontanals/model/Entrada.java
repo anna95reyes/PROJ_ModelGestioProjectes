@@ -6,6 +6,7 @@
 package org.milaifontanals.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -14,6 +15,8 @@ import java.util.Objects;
  * @author anna9
  */
 public class Entrada implements Serializable {
+    
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     
     private Integer numero;
     private Date data;
@@ -58,7 +61,11 @@ public class Entrada implements Serializable {
     public Date getData() {
         return data;
     }
-
+    
+    public String getDataFormatada() {
+        return sdf.format(data);
+    }
+    
     public void setData(Date data) {
         if (data.after(new Date())){
             throw new RuntimeException("La data ha de ser anterior a la data actual");

@@ -6,6 +6,7 @@
 package org.milaifontanals.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -18,6 +19,8 @@ import java.util.Objects;
  */
 
 public class Usuari implements Serializable {
+    
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     
     private Integer id;
     private String nom;
@@ -98,6 +101,10 @@ public class Usuari implements Serializable {
 
     public Date getDataNaixement() {
         return dataNaixement;
+    }
+    
+    public String getDataNaixementFormatada() {
+        return sdf.format(dataNaixement);
     }
 
     public void setDataNaixement(Date dataNaixement) {

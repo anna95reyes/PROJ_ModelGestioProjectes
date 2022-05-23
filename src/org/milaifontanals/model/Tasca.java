@@ -6,6 +6,7 @@
 package org.milaifontanals.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,6 +19,8 @@ import java.util.Objects;
  * @author anna9
  */
 public class Tasca implements Serializable {
+    
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     
     private Integer id;
     private Date dataCreacio;
@@ -80,6 +83,10 @@ public class Tasca implements Serializable {
         return dataCreacio;
     }
 
+    public String getDataCreacioFormatada() {
+        return sdf.format(dataCreacio);
+    }
+    
     public void setDataCreacio(Date dataCreacio) {
         if (dataCreacio.after(new Date())){
             throw new RuntimeException("La data de creacio ha de ser anterior a la data actual");
@@ -113,6 +120,10 @@ public class Tasca implements Serializable {
         return dataLimit;
     }
 
+    public String getDataLimitFormatada() {
+        return sdf.format(dataLimit);
+    }
+    
     public void setDataLimit(Date dataLimit) {
         if (dataLimit != null && dataLimit.before(dataCreacio)) {
             throw new RuntimeException("La data limit es nula o posterior a la data de creacio");
