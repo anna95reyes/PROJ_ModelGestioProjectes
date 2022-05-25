@@ -28,9 +28,10 @@ public class Projecte implements Serializable {
     protected Projecte() {
     }
 
-    public Projecte(Integer id, String nom) {
+    public Projecte(Integer id, String nom, Usuari capProjecte) {
         setId(id);
         setNom(nom);
+        setCapProjecte(capProjecte);
     }
 
     public Projecte(Integer id, String nom, String descripcio, Usuari capProjecte) {
