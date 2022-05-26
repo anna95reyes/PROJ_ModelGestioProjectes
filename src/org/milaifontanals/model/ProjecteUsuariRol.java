@@ -25,29 +25,11 @@ public class ProjecteUsuariRol implements Serializable {
     }
 
     public ProjecteUsuariRol(Projecte projecte, Usuari usuari, Rol rol) {
-        this.projecte = projecte;
-        this.usuari = usuari;
-        this.rol = rol;
+        setProjecte(projecte);
+        setUsuari(usuari);
+        setRol(rol);
     }
 
-    public Integer getIdProjecte() {
-        return idProjecte;
-    }
-
-    public void setIdProjecte(Integer idProjecte) {
-        this.idProjecte = idProjecte;
-    }
-
-    public Integer getIdUsuari() {
-        return idUsuari;
-    }
-
-    public void setIdUsuari(Integer idUsuari) {
-        this.idUsuari = idUsuari;
-    }
-
-    
-    
     public Projecte getProjecte() {
         return projecte;
     }

@@ -71,7 +71,7 @@ public class Usuari implements Serializable {
     }
 
     public void setNom(String nom) {
-        if (nom == null || nom.length() <= 0){
+        if (!comprobarDadesObligatories(nom)){
             throw new RuntimeException("El nom es obligatori i no buit");
         }
         this.nom = nom;
@@ -82,7 +82,7 @@ public class Usuari implements Serializable {
     }
 
     public void setCognom1(String cognom1) {
-        if (cognom1 == null || cognom1.length() <= 0){
+        if (!comprobarDadesObligatories(cognom1)){
             throw new RuntimeException("El cognom1 es obligatori i no buit");
         }
         this.cognom1 = cognom1;
@@ -93,7 +93,7 @@ public class Usuari implements Serializable {
     }
 
     public void setCognom2(String cognom2) {
-        if (cognom2 != null && cognom2.length() <= 0){
+        if (!comprobarDadesOpcionals(cognom2)){
             throw new RuntimeException("El cognom2 es null o amb contingut");
         }
         this.cognom2 = cognom2;
@@ -108,18 +108,20 @@ public class Usuari implements Serializable {
     }
 
     public void setDataNaixement(Date dataNaixement) {
-        if (dataNaixement.after(new Date())){
+        if (!comprobarDataNaixement(dataNaixement)){
             throw new RuntimeException("La data de naixement ha de ser anterior a la data actual");
         }
         this.dataNaixement = dataNaixement;
     }
+
+    
 
     public String getLogin() {
         return login;
     }
 
     public void setLogin(String login) {
-        if (login == null || login.length() <= 0){
+        if (!comprobarDadesObligatories(login)){
             throw new RuntimeException("El login es obligatori i no buit");
         }
         this.login = login;
@@ -130,7 +132,7 @@ public class Usuari implements Serializable {
     }
 
     public void setPasswrdHash(String passwrdHash) {
-        if (passwrdHash == null || passwrdHash.length() <= 0){
+        if (!comprobarDadesObligatories(passwrdHash)){
             throw new RuntimeException("El passwrdHash es obligatori i no buit");
         }
         this.passwrdHash = passwrdHash;
@@ -175,6 +177,19 @@ public class Usuari implements Serializable {
         }
     }
     
+    public static boolean comprobarDadesObligatories(String dada) {
+        return !(dada == null || dada.length() <= 0);
+    }
+    
+    public static boolean comprobarDataNaixement(Date dataNaixement1) {
+        return !dataNaixement1.after(new Date());
+    }
+    
+    public static boolean comprobarDadesOpcionals(String dada) {
+        return !(dada != null && dada.length() <= 0);
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -205,4 +220,5 @@ public class Usuari implements Serializable {
         return "Usuari{" + "id=" + id + ", nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dataNaixement=" + dataNaixement + ", login=" + login + ", passwrdHash=" + passwrdHash + ", projectes=" + projectesRol + ", tasques=" + tasquesAssignades + '}';
     }
 
+    
 }
