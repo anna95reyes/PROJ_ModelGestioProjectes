@@ -28,7 +28,7 @@ public class Usuari implements Serializable {
     private String cognom2;
     private Date dataNaixement;
     private String login;
-    private String passwrdHash;
+    private String passwordHash;
     
     private List<ProjecteUsuariRol> projectesRol = new ArrayList();
     private List<Tasca> tasquesAssignades = new ArrayList();
@@ -42,7 +42,7 @@ public class Usuari implements Serializable {
         setCognom1(cognom1);
         setDataNaixement(dataNaixement);
         setLogin(login);
-        setPasswrdHash(passwrdHash);
+        setPasswordHash(passwrdHash);
     }
 
     public Usuari(Integer id, String nom, String cognom1, String cognom2, Date dataNaixement, String login, String passwrdHash) {
@@ -52,7 +52,7 @@ public class Usuari implements Serializable {
         setCognom2(cognom2);
         setDataNaixement(dataNaixement);
         setLogin(login);
-        setPasswrdHash(passwrdHash);
+        setPasswordHash(passwrdHash);
     }
 
     public Integer getId() {
@@ -127,15 +127,15 @@ public class Usuari implements Serializable {
         this.login = login;
     }
 
-    public String getPasswrdHash() {
-        return passwrdHash;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPasswrdHash(String passwrdHash) {
-        if (!comprobarDadesObligatories(passwrdHash)){
+    public void setPasswordHash(String passwordHash) {
+        if (!comprobarDadesObligatories(passwordHash)){
             throw new RuntimeException("El passwrdHash es obligatori i no buit");
         }
-        this.passwrdHash = passwrdHash;
+        this.passwordHash = passwordHash;
     }
 
     
@@ -217,7 +217,7 @@ public class Usuari implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuari{" + "id=" + id + ", nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dataNaixement=" + dataNaixement + ", login=" + login + ", passwrdHash=" + passwrdHash + ", projectes=" + projectesRol + ", tasques=" + tasquesAssignades + '}';
+        return "Usuari{" + "id=" + id + ", nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dataNaixement=" + dataNaixement + ", login=" + login + ", passwordHash=" + passwordHash + ", projectes=" + projectesRol + ", tasques=" + tasquesAssignades + '}';
     }
 
     
