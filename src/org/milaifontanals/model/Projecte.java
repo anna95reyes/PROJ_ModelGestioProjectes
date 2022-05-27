@@ -41,6 +41,15 @@ public class Projecte implements Serializable {
         setCapProjecte(capProjecte);
     }
 
+	public Projecte(Integer id, String nom, Usuari capProjecte, List<Tasca> tasques, List<ProjecteUsuariRol> usuaris) {
+        setId(id);
+        setNom(nom);
+        setCapProjecte(capProjecte);
+        this.tasques = tasques;
+        this.usuarisRol = usuaris;
+    }
+
+
     public Projecte(Integer id, String nom, String descripcio, Usuari capProjecte, List<Tasca> tasques, List<ProjecteUsuariRol> usuaris) {
         setId(id);
         setNom(nom);
