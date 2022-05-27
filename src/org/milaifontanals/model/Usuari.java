@@ -36,25 +36,39 @@ public class Usuari implements Serializable {
     protected Usuari() {
     }
 
-    public Usuari(Integer id, String nom, String cognom1, Date dataNaixement, String login, String passwrdHash) {
+    public Usuari(Integer id, String nom, String cognom1, Date dataNaixement, String login, String passwordHash) {
         setId(id);
         setNom(nom);
         setCognom1(cognom1);
         setDataNaixement(dataNaixement);
         setLogin(login);
-        setPasswordHash(passwrdHash);
+        setPasswordHash(passwordHash);
     }
 
-    public Usuari(Integer id, String nom, String cognom1, String cognom2, Date dataNaixement, String login, String passwrdHash) {
+    public Usuari(Integer id, String nom, String cognom1, String cognom2, Date dataNaixement, String login, String passwordHash) {
         setId(id);
         setNom(nom);
         setCognom1(cognom1);
         setCognom2(cognom2);
         setDataNaixement(dataNaixement);
         setLogin(login);
-        setPasswordHash(passwrdHash);
+        setPasswordHash(passwordHash);
     }
 
+    public Usuari(Integer id, String nom, String cognom1, String cognom2, Date dataNaixement, String login, String passwordHash, List<ProjecteUsuariRol> projectesRol, List<Tasca> tasquesAssignades) {
+        setId(id);
+        setNom(nom);
+        setCognom1(cognom1);
+        setCognom2(cognom2);
+        setDataNaixement(dataNaixement);
+        setLogin(login);
+        setPasswordHash(passwordHash);
+        this.projectesRol = projectesRol;
+        this.tasquesAssignades = tasquesAssignades;
+    }
+
+    
+    
     public Integer getId() {
         return id;
     }
@@ -133,7 +147,7 @@ public class Usuari implements Serializable {
 
     public void setPasswordHash(String passwordHash) {
         if (!comprobarDadesObligatories(passwordHash)){
-            throw new RuntimeException("El passwrdHash es obligatori i no buit");
+            throw new RuntimeException("El passwordHash es obligatori i no buit");
         }
         this.passwordHash = passwordHash;
     }
@@ -181,8 +195,8 @@ public class Usuari implements Serializable {
         return !(dada == null || dada.length() <= 0);
     }
     
-    public static boolean comprobarDataNaixement(Date dataNaixement1) {
-        return !dataNaixement1.after(new Date());
+    public static boolean comprobarDataNaixement(Date data) {
+        return !data.after(new Date());
     }
     
     public static boolean comprobarDadesOpcionals(String dada) {

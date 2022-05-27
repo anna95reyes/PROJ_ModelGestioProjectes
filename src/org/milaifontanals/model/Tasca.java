@@ -180,7 +180,7 @@ public class Tasca implements Serializable {
     /*
         Ho posso com a privat perque considero que l'estat s'ha d'entrar desde el constructor,
         i en cas de que es volgues cambiar d'estat, s'ha de generar una nova entrada per fer-ho,
-        per tant, no s'ha de poder cambiar l'esta desde la tasca.
+        per tant, no s'ha de poder cambiar l'estat desde la tasca.
     */
     private void setEstat(Estat estat) { 
         this.estat = estat;

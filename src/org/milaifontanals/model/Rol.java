@@ -58,7 +58,7 @@ public class Rol {
         if (usuariProjecte == null){
             throw new RuntimeException("Intent d'afegir un usuariProjecte null");
         }
-        if (usuariProjecte.getProjecte() == null){
+        if (usuariProjecte.getRol()== null){
             if (!this.usuarisProjectes.contains(usuariProjecte)){
                 usuarisProjectes.add(usuariProjecte);
             }
