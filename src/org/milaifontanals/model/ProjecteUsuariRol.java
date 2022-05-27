@@ -35,7 +35,7 @@ public class ProjecteUsuariRol implements Serializable {
     }
 
     public void setProjecte(Projecte projecte) {
-	if (projecte == null) {
+        if (projecte == null) {
             throw new RuntimeException("El projecte es obligatori");
         }
         this.projecte = projecte;
@@ -47,7 +47,7 @@ public class ProjecteUsuariRol implements Serializable {
     }
 
     public void setUsuari(Usuari usuari) {
-	if (usuari == null) {
+        if (usuari == null) {
             throw new RuntimeException("L'usuari es obligatori");
         }
         this.usuari = usuari;
@@ -59,7 +59,7 @@ public class ProjecteUsuariRol implements Serializable {
     }
 
     public void setRol(Rol rol) {
-	if (rol == null) {
+        if (rol == null) {
             throw new RuntimeException("El rol es obligatori");
         }
         this.rol = rol;
