@@ -20,7 +20,7 @@ import java.util.Objects;
  */
 public class Tasca implements Serializable {
     
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     
     private Integer id;
     private Date dataCreacio;
@@ -37,7 +37,7 @@ public class Tasca implements Serializable {
     protected Tasca(){
     }
 
-    public Tasca(Integer id, Date dataCreacio, String nom, Estat estat) {
+    public Tasca(Integer id, Date dataCreacio, String nom, Usuari propietari, Estat estat) {
         setId(id);
         setDataCreacio(dataCreacio);
         setNom(nom);
@@ -45,7 +45,7 @@ public class Tasca implements Serializable {
         setEstat(estat);
     }
 
-    public Tasca(Integer id, Date dataCreacio, String nom, String descripcio, Date dataLimit, Estat estat) {
+    public Tasca(Integer id, Date dataCreacio, String nom, String descripcio, Date dataLimit, Usuari propietari, Usuari responsable, Estat estat) {
         setId(id);
         setDataCreacio(dataCreacio);
         setNom(nom);

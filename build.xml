@@ -10,6 +10,13 @@
 <project name="ModelGestioProjectes" default="default" basedir=".">
     <description>Builds, tests, and runs the project ModelGestioProjectes.</description>
     <import file="nbproject/build-impl.xml"/>
+	
+	<target name="-post-jar">
+		<copy file="dist\ModelGestioProjectes.jar" todir="C:\Users\anna9\Documents\ESTUDIOS\DAM\2021-2022\M13-Projecte\Projecte\codi\AppAndroidClient\app\lib">
+			
+		</copy>
+	</target>
+	
     <!--
 
     There exist several targets which are by default empty and which can be 
@@ -70,4 +77,5 @@
     nbproject/build-impl.xml file. 
 
     -->
+	
 </project>

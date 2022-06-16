@@ -109,6 +109,10 @@ public class Projecte implements Serializable {
         return tasques.iterator();
     }
     
+    public Integer getSizeTasques(){
+        return tasques.size();
+    }
+    
     public void addTasca(Tasca tasca){
         if (tasca == null){
             throw new RuntimeException("Intent d'afegir una tasca nulla");

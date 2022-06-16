@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 public class Entrada implements Serializable {
     
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     
     private Integer numero;
     private Date data;
@@ -52,7 +52,7 @@ public class Entrada implements Serializable {
     }
 
     public void setNumero(Integer numero) {
-        if (numero != null || numero <= 0){
+        if (numero <= 0){
             throw new RuntimeException("El numero es obligatori i positiu");
         }
         this.numero = numero;

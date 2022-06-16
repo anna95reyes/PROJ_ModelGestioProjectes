@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class Usuari implements Serializable {
     
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     
     private Integer id;
     private String nom;
